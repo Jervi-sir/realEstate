@@ -27,4 +27,9 @@ class Announce extends Model
         return $this->belongsToMany(Tag::class, 'announce_tag');
     }
 
+    public function wilaya()
+    {
+        return $this->belongsTo(Wilaya::class);
+    }
+
 }

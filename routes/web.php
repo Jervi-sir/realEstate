@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnnounceController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/all', [HomeController::class, 'index'])->name('all');
 Route::get('/create', [AnnounceController::class, 'create'])->name('announce.create');
 Route::post('/store', [AnnounceController::class, 'store'])->name('announce.store');
 
