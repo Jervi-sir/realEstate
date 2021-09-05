@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnnounceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('/create', [AnnounceController::class, 'create'])->name('announce.create');
+Route::post('/store', [AnnounceController::class, 'store'])->name('announce.store');
+
+require __DIR__.'/auth.php';
